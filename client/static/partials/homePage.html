@@ -1,0 +1,27 @@
+<div ng-controller = 'homepageController'>
+	<div id="header">
+		<a href="#/home">Home</a> | <a href="#/add_question/{{userName}}">Add a Question</a>  | <a href="#/logout">LogOut</a>
+	</div>
+		<p>{{userName}}</p>
+	<div>
+		<label for="search">Search</label>
+		<input type="text" placeholder = "search" name="search" ng-model = 'filter_question'>
+
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Question</th>
+					<th>Answers</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody ng-repeat = 'question in questions | filter : filter_question'>
+				<tr>
+					<td>{{question.question}} - {{question.description}}</td>
+					<td>{{question.answer_ids.length}}</td>
+					<td><a href='#/show_question/{{question._id}}/{{userName}}'>Show Question</a> <a href='#/answer_question/{{question._id}}/{{userName}}'>Answer</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

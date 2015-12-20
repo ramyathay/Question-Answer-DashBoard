@@ -1,0 +1,21 @@
+<div ng-controller = 'answerQstn_Controller'>
+	<div id="header">
+		<a href="#/homePage/{{userName}}">Home</a> | <a href="#/add_question">Add a Question</a>  | <a href="#/logout">LogOut</a>
+	</div>
+	<h3>{{question.question}}</h3>
+	<h4>{{question.description}}</h4>
+	<form>
+		<div class="form-group">
+			<label for="answer_content"> Your Answer</label>
+			<textarea name="answer_content" ng-model = 'newAnswer.text'></textarea>
+		</div>
+		<div class="form-group">
+			<label for="description">Description (optional)</label>
+			<textarea name="description" ng-model = 'newAnswer.description'></textarea>
+		</div>
+		<input type="hidden" ng-model = 'newAnswer.userName' value = '{{userName}}'>
+		<button class="btn btn-primary" type="submit" ng-click = 'addAnswer()'>Submit</button>
+		<button class="btn btn-primary" ng-click = 'cancelAnswer()'>Cancel</button>
+	</form>
+</div>
+</div>

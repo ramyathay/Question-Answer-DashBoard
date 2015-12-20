@@ -1,0 +1,19 @@
+<div ng-controller = 'questionController'>
+	<h3>New Question</h3>
+	<form name="question_form">
+		<div class="form-group">
+			<label for="question_content">Question</label>
+			<textarea name="question_content" ng-model = 'newQuestion.text' ng-minlength = "10" required /></textarea>
+			<div ng-messages = "question_form.question_content.$error" style = "color : red" role = "alert" ng-if = 'submitted'>
+				<div ng-message="required">You did not enter a question</div>
+				<div ng-message="minlength">Your field is too short</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="description">Description (optional)</label>
+			<textarea name="description" ng-model = 'newQuestion.description'></textarea>
+		</div>
+		<button class="btn btn-primary" type="submit" ng-click ='submitted = true;addQuestion(question_form.question_content.$error)'>Submit</button>
+		<button class="btn btn-primary" ng-click = 'cancelQuestion()'>Cancel</button>
+	</form>
+</div>
